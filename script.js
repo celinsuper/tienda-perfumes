@@ -393,7 +393,7 @@ function checkout() {
     }
 
     // 1. Configura tu teléfono de WhatsApp (incluye código de país, ej. 52 para México)
-    const phoneNumber = "529624505235"; // <-- CAMBIA ESTE NÚMERO POR EL TUYO
+    const phoneNumber = "529611798250"; // <-- CAMBIA ESTE NÚMERO POR EL TUYO
 
     // 2. Definir datos de transferencia bancaria
     const bankDetails = {
