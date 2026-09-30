@@ -1,0 +1,100 @@
+/* ==========================================
+   ESTILOS PERSONALIZADOS & EFECTOS DE LUJO
+   ========================================== */
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0d0d0d;
+    color: #f3f3f3;
+}
+
+h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Gradients y Colores Dorados */
+.gold-gradient-text {
+    background: linear-gradient(135deg, #F4E5C3 0%, #D9B468 50%, #A37B2C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+    background: linear-gradient(135deg, #D9B468 0%, #C59B3F 50%, #A37B2C 100%);
+}
+
+.gold-border-gradient {
+    border-image: linear-gradient(to right, #D9B468, #FAF4E5, #A37B2C) 1;
+}
+
+/* Efectos de Cristal / Glassmorphism */
+.glass-card {
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(217, 180, 104, 0.15);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(217, 180, 104, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(197, 155, 63, 0.25);
+}
+
+.glass-nav {
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(217, 180, 104, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #C59B3F;
+}
+
+/* Ambient Glow Effect */
+.glow-effect {
+    position: relative;
+}
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(197, 155, 63, 0.15) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.shimmer {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(217,180,104,0.15) 50%, rgba(255,255,255,0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+}
+
+/* Animación Modal */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
