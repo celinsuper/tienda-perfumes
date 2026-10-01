@@ -393,7 +393,7 @@ function checkout() {
     }
 
     // 1. Configura tu teléfono de WhatsApp (incluye código de país, ej. 52 para México)
-    const phoneNumber = "529181068482"; // <-- CAMBIA ESTE NÚMERO POR EL TUYO
+    const phoneNumber = "529624505235"; // <-- CAMBIA ESTE NÚMERO POR EL TUYO
     
     const orderNum = `#Iszaro-${Math.floor(10000 + Math.random() * 90000)}`;
     
