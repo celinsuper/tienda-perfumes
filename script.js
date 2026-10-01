@@ -397,7 +397,7 @@ function checkout() {
         return;
     }
 
-    const phoneNumber = "529624505235";
+    const phoneNumber = "529611798250";
     
     // Generar ID único irrepetible basado en timestamp
     const orderNum = generateUniqueOrderNumber();
