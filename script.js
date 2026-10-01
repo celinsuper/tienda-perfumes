@@ -432,7 +432,7 @@ function checkout() {
     message += `• *CLABE:* ${bankDetails.clabe}\n`;
     message += `• *N° Cuenta:* ${bankDetails.cuenta}\n\n`;
 
-    message += "📌 *Nota:* Una vez realizada la transferencia, enviar el comprobante por este medio. ¡Gracias!";
+    message += "📌 *Nota:* Una vez realizada la transferencia, enviar el comprobante por este medio. ¡Gracias!\n\n";
     message += `*ORDEN:* ${orderNum}\n\n`;
     
     // Crear enlace encodeado y abrir WhatsApp
