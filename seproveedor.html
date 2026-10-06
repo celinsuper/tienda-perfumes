@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Proveedores</title>
+    <link rel="stylesheet" href="agregarcita2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #513223;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        header h1 {
+            font-size: 22px;
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+        header p {
+            color: #636e72;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #2d3436;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #dfe6e9;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input:focus, select:focus {
+            border-color: #0984e3;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #1ebc57;
+        }
+        .btn-panel {
+            display: inline-block;
+            margin-top: 15px;
+            text-align: center;
+            width: 100%;
+            color: #0984e3;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-user-plus"></i> Registro de Proveedor</h1>
+            <p>Ingresa tu Datos porfavor.</p>
+        </header>
+
+        <form id="providerForm">
+            <div class="form-group">
+                <label for="name"><i class="fa-solid fa-user"></i> Nombre completo</label>
+                <input type="text" id="name" placeholder="Ej. Juan Pérez" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone"><i class="fa-solid fa-phone"></i> Teléfono</label>
+                <input type="tel" id="phone" placeholder="Ej. 9611234567" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+                <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="department"><i class="fa-solid fa-briefcase"></i> Tipo de servicio</label>
+                <select id="department" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Quiero ser Proveedor">Quiero ser Proveedor</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="fa-brands fa-whatsapp"></i> Guardar y Enviar a WhatsApp
+            </button>
+             <a  href="index.html" style="text-decoration: none;" class="btn-submit"><i class="fa-solid fa-arrow-left"></i>Volver a la Pagina Principal</a>
+        </form>
+
+        <a href="citasguardadas2.html" class="btn-panel"><i class="fa-solid fa-table"></i></a>
+    </div>
+
+    <script>
+        // Configura aquí el número al que se enviará el mensaje (incluye clave de país, ej. 52 para México)
+        const NUMERO_DESTINO_WHATSAPP = '529618987071';
+
+        document.getElementById('providerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const department = document.getElementById('department').value;
+
+            // 1. Estructura del objeto compatible con el panel
+            const nuevoProveedor = {
+                name: name,
+                phone: phone,
+                email: email,
+                department: department
+            };
+
+            // 2. Guardar en localStorage bajo la clave 'citasClinica'
+            let proveedores = JSON.parse(localStorage.getItem('citasClinica')) || [];
+            proveedores.push(nuevoProveedor);
+            localStorage.setItem('citasClinica', JSON.stringify(proveedores));
+
+            // 3. Crear mensaje codificado para WhatsApp
+            const mensaje = `*Nuevo Registro de Proveedor*%0A%0A` +
+                `*Nombre:* ${encodeURIComponent(name)}%0A` +
+                `*Teléfono:* ${encodeURIComponent(phone)}%0A` +
+                `*Correo:* ${encodeURIComponent(email)}%0A` +
+                `*Servicio:* ${encodeURIComponent(department)}`;
+
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${NUMERO_DESTINO_WHATSAPP}&text=${mensaje}`;
+
+            // 4. Resetear formulario y abrir WhatsApp
+            document.getElementById('providerForm').reset();
+            window.open(urlWhatsApp, '_blank');
+        });
+    </script>
+
+</body>
+</html>
