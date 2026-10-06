@@ -6,7 +6,7 @@ const PRODUCTS = [
         brand: 'Maison Francis Kurkdjian',
         category: 'nicho',
         priceMXN: 350,
-        image: 'img/nicho3s.jpg',
+        image: 'nicho3s.jpg',
         badge: 'Top Ventas',
         notes: {
             top: 'Jazmín Grandiflorum de Egipto, Azafrán',
@@ -21,7 +21,7 @@ const PRODUCTS = [
         brand: 'Creed',
         category: 'hombre',
         priceMXN: 350,
-        image: 'img/hombre3s.jpg',
+        image: 'hombre3s.jpg',
         badge: 'Emblemático',
         notes: {
             top: 'Piña, Bergamota, Grosella Negra, Manzana',
@@ -36,7 +36,7 @@ const PRODUCTS = [
         brand: 'Parfums de Iszaro',
         category: 'mujer',
         priceMXN: 320, 
-        image: 'img/dama5s.jpg',
+        image: 'dama5s.jpg',
         badge: 'Nuevo',
         notes: {
             top: 'Lichi, Pera, Bergamota',
@@ -51,7 +51,7 @@ const PRODUCTS = [
         brand: 'Elixir de parfum',
         category: 'unisex',
         priceMXN: 350,
-        image: 'img/unisex.jpg',
+        image: 'unisex.jpg',
         notes: {
             top: 'Madera de Oud, Palo de Rosa de Brasil',
             heart: 'Cardamomo, Pimienta de Sichuan, Sándalo',
