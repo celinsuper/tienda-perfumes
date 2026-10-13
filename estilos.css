@@ -184,3 +184,8 @@ h1, h2, h3, h4, .font-serif {
   transform: translateX(-50%) translateY(0);
 }
 /* finaliza Contenedor redes sociales horizontal centrado  */
+
+/* para darle borde a las  imagenes del Carrusel */
+ section .relative{
+        border-radius: 10px;          
+}
