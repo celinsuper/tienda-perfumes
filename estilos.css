@@ -204,8 +204,8 @@ h1, h2, h3, h4, .font-serif {
     text-align: justify;
 }
 .logo-img{
-    width: 100px;
-    height: auto;
+    width: auto;
+    height: 80px;
 }
 /* MODO MOVIL EL CARRUSEL ESTARA EN MEDIO Y MAS PEQUEÑO*/ 
 @media (max-width: 768px){
